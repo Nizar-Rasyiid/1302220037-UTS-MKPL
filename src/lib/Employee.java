@@ -25,8 +25,7 @@ public class Employee {
 		this.employeeInfo = employeeInfo;
 
 		
-		childNames = new LinkedList<String>();
-		childIdNumbers = new LinkedList<String>();
+
 	}
 	
 	/**
