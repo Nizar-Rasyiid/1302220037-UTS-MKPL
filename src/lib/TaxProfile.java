@@ -11,10 +11,10 @@ public class TaxProfile {
     public TaxProfile(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
         this.monthlySalary = monthlySalary;
         this.otherMonthlyIncome = otherMonthlyIncome;
-        this.numberOfMonthWorking = Math.min(numberOfMonthWorking, 12); // Guard
+        this.numberOfMonthWorking = Math.min(numberOfMonthWorking, 12);
         this.deductible = deductible;
         this.isMarried = isMarried;
-        this.numberOfChildren = Math.min(numberOfChildren, 3); // Max 3 anak
+        this.numberOfChildren = Math.min(numberOfChildren, 3);
     }
 
     // Getters
