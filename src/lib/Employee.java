@@ -54,16 +54,26 @@ public class Employee {
 		this.employeeInfo.addChild(childName, childIdNumber);
 	}
 	public int getAnnualIncomeTax() {
+		int monthWorkingInYear = calculateMonthsWorkedInYear();
+		TaxProfile taxProfile = createTaxProfile(monthWorkingInYear);
+		return TaxFunction.calculateTax(taxProfile);
+	}
 
+	private int calculateMonthsWorkedInYear() {
+		int currentYear = LocalDate.now().getYear();
+		return (joinedDate.getYear() == currentYear)
+				? LocalDate.now().getMonthValue() - joinedDate.getMonth()
+				: 12;
+	}
 
-		LocalDate date = LocalDate.now();
-
-		if (date.getYear() == yearJoined) {
-			monthWorkingInYear = date.getMonthValue() - monthJoined;
-		}else {
-			monthWorkingInYear = 12;
-		}
-
-		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), childIdNumbers.size());
+	private TaxProfile createTaxProfile(int monthWorkingInYear) {
+		return new TaxProfile(
+				monthlySalary,
+				otherMonthlyIncome,
+				monthWorkingInYear,
+				annualDeductible,
+				employeeInfo.hasSpouse(),
+				employeeInfo.getNumberOfChildren()
+		);
 	}
 }
