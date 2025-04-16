@@ -7,36 +7,23 @@ import java.util.List;
 
 public class Employee {
 
+
 	private String employeeId;
-	private String firstName;
-	private String lastName;
-	private String idNumber;
-	private String address;
-	private JointedDate joinedDate;
+
+	private JoinedDate joinedDate;
 	private int monthWorkingInYear;
-	
-	private boolean isForeigner;
-	private boolean gender; //true = Laki-laki, false = Perempuan
+	private EmployeeInfo employeeInfo;
 	
 	private int monthlySalary;
 	private int otherMonthlyIncome;
 	private int annualDeductible;
-	
-	private String spouseName;
-	private String spouseIdNumber;
 
-	private List<String> childNames;
-	private List<String> childIdNumbers;
 	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, JoinedDate joinedDate, boolean isForeigner, boolean gender) {
+	public Employee(String employeeId, JoinedDate joinedDate,employeeInfo employeeInfo) {
 		this.employeeId = employeeId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.idNumber = idNumber;
-		this.address = address;
 		this.joinedDate = joinedDate;
-		this.isForeigner = isForeigner;
-		this.gender = gender;
+		this.employeeInfo = employeeInfo;
+
 		
 		childNames = new LinkedList<String>();
 		childIdNumbers = new LinkedList<String>();
