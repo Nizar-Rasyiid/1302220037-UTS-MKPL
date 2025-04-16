@@ -9,7 +9,7 @@ public class EmployeeInfo {
     private String idNumber;
     private String address;
     private boolean isForeigner;
-    private boolean gender; // true = Laki-laki, false = Perempuan
+    private boolean gender;
 
     private String spouseName;
     private String spouseIdNumber;
